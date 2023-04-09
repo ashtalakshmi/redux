@@ -67,7 +67,7 @@ const WishlistRemove=(item)=>{
                 <p>{item.description}</p>
                 <img src={item.image} alt={item.title} />
                 <p>₹ {item.price}</p>
-                <button onClick={() => handleClick(item)} disabled={totalCount>=10}>Add to Cart</button>
+                <button onClick={() => handleClick(item)} disabled={totalCount>=100}>Add to Cart</button>
                 {wishAddRemove.find((b) => b.id === item.id)?<button onClick={()=>WishlistRemove(item.id)}>Remove</button>:<button onClick={()=>addtowishlist(item)}>AddwishList</button>}
                 
               </div>
