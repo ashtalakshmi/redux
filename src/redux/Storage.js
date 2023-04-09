@@ -13,6 +13,14 @@ const cartSlice = createSlice({
       state.productsoverall.push(action.payload);
       state.totalCount += 1;
     },
+    addtowishlist1: (state, action) => {
+      debugger
+      state.wishAddRemove.push(action.payload)
+   },
+   WishlistRemove1:(state,action)=>{
+    debugger
+    state.wishAddRemove.splice(action.payload,1)
+   },
     addDirectCountToTable:(state,action)=>{
       let actual_count=0
       state.productsoverall.map((b,i)=>{

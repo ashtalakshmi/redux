@@ -4,6 +4,9 @@ import { Store } from 'redux';
 import commerceStore from './redux/Storage';
 import CartPage from './redux/CartPage';
 import Products from './redux/Products';
+import { Route,Router } from "react-router-dom";
+import WishList  from './redux/wishListpPage'
+
 import { Provider } from 'react-redux';
 
 function App() {
@@ -13,7 +16,13 @@ function App() {
         <CartPage />
         <hr />
         <Products />
+        <WishList/>
       </Provider>
+
+
+
+      
+
     </div>
   );
 }

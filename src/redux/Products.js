@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+
 import { useDispatch, useSelector } from "react-redux";
 import apiCall from "./ApiCallService";
 import { cartActions } from "./Storage";
@@ -8,6 +9,7 @@ const Products = () => {
   const { productsoverall } = useSelector(state => state.cart);
   const { wishAddRemove } = useSelector(state => state.cart);
   const { totalCount } = useSelector(state => state.cart);
+
   
   const dispatch = useDispatch()
 
@@ -36,9 +38,23 @@ const Products = () => {
    
   }
 
+  
+  const addtowishlist = (item) => {
+    dispatch(cartActions.addtowishlist1(item));  
+}
+
+const WishlistRemove=(item)=>{
+    dispatch(cartActions.WishlistRemove1(item.id));
+}
+// const hanldeNavigate = () => {
+//   navigate('/wishlist')
+
+// }
   return (
     <div>
-      <h1>Products</h1>
+
+
+     <h1>Products</h1>
       <section style={{
         display: 'flex',
         flexDirection: 'row',
@@ -52,7 +68,8 @@ const Products = () => {
                 <img src={item.image} alt={item.title} />
                 <p>₹ {item.price}</p>
                 <button onClick={() => handleClick(item)} disabled={totalCount>=10}>Add to Cart</button>
-                <button >Add to Wishlist</button>
+                {wishAddRemove.find((b) => b.id === item.id)?<button onClick={()=>WishlistRemove(item.id)}>Remove</button>:<button onClick={()=>addtowishlist(item)}>AddwishList</button>}
+                
               </div>
             )
         })
